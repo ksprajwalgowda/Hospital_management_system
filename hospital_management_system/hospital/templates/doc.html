@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mt-4">Doctor</h2>
+    {% comment %} <ul>
+        {% for object in object_list %} 
+        <p> {{ object.firstName }} {{ object.lastName }} {{ object.qualification }} {{ object.specialization }} {{ object.address }} {{ object.phNo }} {{ object.experince }}</p>
+  
+    <hr/> 
+    
+    {% empty %} 
+    <li>No objects yet.</li> 
+    {% endfor %} 
+    </ul> {% endcomment %}
+
+    <table class="table table-striped table-hover mt-4">
+  <thead>
+    <tr>
+      
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Specialization</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Experince</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+    <tr>
+      
+      <td>{{ object.firstName }}</td>
+      <td>{{ object.lastName }}</td>
+      <td>{{ object.qualification }}</td>
+      <td>{{ object.specialization }}</td>
+      <td>{{ object.address }}</td>
+      <td>{{ object.phNo }}</td>
+      <td>{{ object.experince }}</td>
+    </tr>
+    {% empty %} 
+    <li>No objects yet.</li>
+    {% endfor %} 
+   
+{% endblock %}

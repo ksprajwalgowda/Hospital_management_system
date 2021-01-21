@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <!-- {% for object in avlrooms %} 
+
+    <p>{{ object.id }}, {{ object.roomNo }}, {{ object.rtype }}, {{object.rent}},<a href="{{object.pk}}">{{object.avaliable}} </a>  </p>
+   
+
+    {% empty %} 
+    <li>No objects yet.</li> 
+    {% endfor %}
+
+    <h2>filled rooms</h2>
+
+    {% for object1 in filledroom %} 
+
+    <p>{{ object1.roomNo }}, {{ object1.rtype }}, {{object1.rent}}, {{object1.pname}}, <a href="{{object1.pk}}">{{object1.avaliable}} </a> </p>
+   
+
+    {% empty %} 
+    <li>No objects yet.</li> 
+    {% endfor %} -->
+  {% load crispy_forms_tags %}
+    <div class="row">
+        <div class="col-6">
+            <h2 class = "mt-4"> Avalible Rooms</h2> 
+            <table class="table table-striped table-hover mt-4">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col">Room No</th>
+                    <th scope="col">Room Type</th>
+                    <th scope="col">Rent</th>
+                    <th scope="col">Patient Name</th>
+                    <th scope="col">Avaliable</th>
+                    <th scope="col"></th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for object in avlrooms %}
+                  <tr>
+                    
+                    
+                    <td>{{ object.roomNo }}</td>
+                    <td>{{ object.rtype }}</td>
+                    <td>{{object.rent}}</td>
+                    <td>{{object.pname}}</td>
+                    <td>{{object.avaliable}}</td>
+                    <td><a class="btn btn-primary" href="{{object.pk}}">Update</a></td>
+
+                    
+                  {% empty %} 
+                    <td colspan="6" >There are no Avaliable Rooms</td>
+                  {% endfor %}
+                </tbody>
+            </table>
+            
+        </div>
+        <div class="col-6">
+            <h2 class = "mt-4"> Filled Rooms</h2>
+                <table class="table table-striped table-hover mt-4">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">Room No</th>
+                        <th scope="col">Room Type</th>
+                        <th scope="col">Rent</th>
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Avaliable</th>
+                        <th scope="col"></th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for object in filledroom %}
+                      <tr>
+                        
+                        
+                        <td>{{ object.roomNo }}</td>
+                        <td>{{ object.rtype }}</td>
+                        <td>{{object.rent}}</td>
+                        <td>NULL</td>
+                        <td>{{object.avaliable}} </td>
+                        <td><a class="btn btn-primary" href="{{object.pk}}">Update</a></td>
+                        
+                      </tr>
+                      {% empty %} 
+                      <td colspan="6" >All the rooms are Avaliable</td>
+                      {% endfor %}
+                    </tbody>
+                </table>
+                
+        </div>
+
+    </div>
+
+
+{% endblock %}

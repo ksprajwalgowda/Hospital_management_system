@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mt-4">Medicine</h2>
+    {% comment %} <ul>
+        {% for object in object_list %} 
+        <p> {{ object.mno }} {{ object.mname }} {{ object.quantity }} {{ object.price }} {{ object.pname }}</p>
+  
+    <hr/> 
+    
+    {% empty %} 
+    <li>No objects yet.</li> 
+    {% endfor %} 
+    </ul> {% endcomment %}
+
+    <table class="table table-striped table-hover mt-4">
+  <thead>
+    <tr>
+      
+      <th scope="col">ID</th>
+      <th scope="col">Medicine Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">Patient Name</th>
+      {% comment %} <th scope="col"></th> {% endcomment %}
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+    <tr>
+      
+      <td>{{ object.mno }}</td>
+      <td>{{ object.mname }}</td>
+      <td>{{ object.quantity }}</td>
+      <td>{{ object.price }}</td>
+      <td>{{ object.pname }}</td>
+      {% comment %} <td><div class="btn-group" role="group" aria-label="Basic example">
+          <a class="btn btn-primary" href="{{object.pk}}">Edit</a>
+          <a class="btn btn-danger" href="{{object.pk}}/delete/">Delete</a>
+        </div>
+      </td> {% endcomment %}
+
+     
+    </tr>
+    {% empty %} 
+    <li>No objects yet.</li>
+    {% endfor %}
+   
+{% endblock %}

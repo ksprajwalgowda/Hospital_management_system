@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+     {% if user.is_authenticated  %}
+     <style>
+        .jumbotron
+        {
+           background-image: url('https://wallpaperaccess.com/full/368843.jpg');
+           background-attachment: fixed;
+           background-repeat: no-repeat;
+        }
+    </style>
+        <div class="jumbotron">
+            <h1><span style="font-weight: bold;letter-spacing: 5px;"> Astrix </span></h1>
+           <h4> {{ user.last_login}}</h4>
+        </div>
+    {% else %}
+        <h4>plz login</h4>
+     
+     {% endif %}
+
+    {% if user.is_authenticated  %}
+    
+
+    <div class="container">
+        <style>
+            .blur
+            {
+                background:rgba(241, 219, 225, 0.1);
+                backdrop-filter: blur(10px);
+                color: rgba(156, 145, 145, 0.5);
+                box-shadow: 0 3px 5px rgba(228, 216, 216, 0.3);
+            }
+        </style>
+        <div class="row mt-4">
+            <div class="clo-12 col-md-6">
+                <div class="card text-center h-100">
+                    <img class="card-img" src="{% static 'images/patient.png' %}" alt="Card image">
+                    <div class="card-img-overlay blur">
+                      <div style="margin-top: 5%;">
+                        <h4 class="card-title">Patients Under Treatement</h4>
+                        <h2 class="card-text">{{ patient_no }}</h2>
+                        
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="clo-12 col-md-6">
+                <div class="card text-center h-100">
+                    <img class="card-img" src=" {% static 'images/doctor.jpg' %} " alt="Card image">
+                    <div class="card-img-overlay blur">
+                      <div style="margin-top: 5%;">
+                        <h4 class="card-title">Doctors Working Here</h4>
+                        <h2 class="card-text">{{ doctor_no }}</h2>
+                        
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+    <h1>{{no}}</h1>
+    
+{% endblock %}
