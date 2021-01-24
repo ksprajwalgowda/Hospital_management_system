@@ -1,38 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <link rel="stylesheet" href="{% static '/css/style1.css' %}">
 
-     {% if user.is_authenticated  %}
-     <style>
-        .jumbotron
-        {
-           background-image: url('https://wallpaperaccess.com/full/368843.jpg');
-           background-attachment: fixed;
-           background-repeat: no-repeat;
-        }
-    </style>
-        <div class="jumbotron">
-            <h1><span style="font-weight: bold;letter-spacing: 5px;"> Astrix </span></h1>
-           <h4> {{ user.last_login}}</h4>
-        </div>
-    {% else %}
-        <h4>plz login</h4>
-     
+
+    
+    <section id="hero" class="d-flex align-items-center" style="z-index: -5000;">
+    <div class="container text-center position-relative">
+      <h1>24/7 Care is available</h1>
+      <h2>WE ARE READY IN YOUR HOUR ON NEED</h2>
+      {% if user.is_authenticated  %}
+      <a style="z-index: 1111115000;" href="{% url 'logout' %}" class="main-btn">{{ user.last_login}}</a>
+      <br>
+     <sub  style="color: white;">Last Logged in</sub>
      {% endif %}
+    </div>
+  </section>
 
-    {% if user.is_authenticated  %}
+  <style>
+    .blur
+    {
+        background:rgba(241, 219, 225, 0.1);
+        backdrop-filter: blur(10px);
+        color: rgba(156, 145, 145, 0.5);
+        box-shadow: 0 3px 5px rgba(228, 216, 216, 0.3);
+    }
+</style>
     
 
-    <div class="container">
-        <style>
-            .blur
-            {
-                background:rgba(241, 219, 225, 0.1);
-                backdrop-filter: blur(10px);
-                color: rgba(156, 145, 145, 0.5);
-                box-shadow: 0 3px 5px rgba(228, 216, 216, 0.3);
-            }
-        </style>
+    <!-- <div class="container">
+       
         <div class="row mt-4">
             <div class="clo-12 col-md-6">
                 <div class="card text-center h-100">
@@ -59,10 +56,61 @@
                   </div>
             </div>
         </div>
+    </div> -->
+
+
+
+    <section id="services" class="services mt-5 mb-3 py-3">
+    <div class="container">
+      <div class="section-title">
+        
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+          <div class="service shadow" style="background-color: #866ec7 ;">
+            <div class="icon">
+                <h2>{{ doctor_no }}</h2>
+            </div>
+            <h4><a href="">Number of Doctors</a></h4>
+            <p>Number of Specialized Doctor in our hospital 
+              who treat the patient in best of there efforts
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 d-flex align-items-stretch mt-6 mt-md-0">
+          <div class="service c shadow" style="background-color: #866ec7 ;">
+            <div class="icon">
+                <h2>{{ patient_no }}</h2>
+            </div>
+            <h4><a href="">Patient under Treatement</a></h4>
+            <p>Total number of patients who are treated in our hospital
+              and they are recovering very fast to our treatment
+            </p>
+          </div>
+        </div>
+      
+      </div>
+      <div class="row">
+        {% for obj in doc_details %}
+        <div class="card mb-3 mx-auto m-4" style="max-width: 540px;">
+          <div class="row ">
+            <div class="col-md-12">
+              <img class="img-fluid"  src="static\images\doc.jpg"   alt="..." >
+            </div>
+            <div class="col-12">
+              <div class="card-body">
+                <h5 class="card-title">{{obj.firstName}} {{obj.lastName}}</h5>
+                <p class="card-text"><strong>Qualification:</strong> {{obj.qualification}} <br><strong>Specialization:</strong> {{obj.specialization}} <br><strong>Phone Number:</strong> {{obj.phNo}}</p>
+                <p class="card-text"><small class="text-muted">He is from {{obj.address}}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
     </div>
-
-    {% endif %}
-
-    <h1>{{no}}</h1>
+  </section>
     
 {% endblock %}

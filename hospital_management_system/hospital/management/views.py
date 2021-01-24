@@ -7,13 +7,14 @@ from .forms import AddPatientForm,AddTreatmentForm,AddMedicineForm
 # Create your views here.
 
 
-
+obj_doc_details = Doctor.objects.all()
 
 def home(request):
-    obj = Doctor.objects.all().count()
+    
     context = {
         "patient_no":Patients.objects.all().count(),
         "doctor_no":Doctor.objects.all().count(),
+        "doc_details":obj_doc_details,
     }
     return render(request,"index.html",context)
 

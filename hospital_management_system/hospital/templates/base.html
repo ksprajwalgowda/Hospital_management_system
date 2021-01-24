@@ -2,6 +2,11 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <style>
+	*{
+		transition: 3s linear;
+	}
+  </style>
   	<title>Hospital :)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,10 +14,12 @@
 	<link rel="stylesheet" href="{% static '/css/style.css' %}">
 	<link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	{% comment %} <link rel="stylesheet" href="{% static '/css/style1.css' %}"> {% endcomment %}
   </head>
   <body>
-	<nav class="navbar navbar-light bg-light " style="margin: 0;  ">
+	 <nav class="navbar navbar-light " style="margin: 0; background-color: #bca6f5;">
 		<a class="navbar-brand" style="font-weight: bold;letter-spacing: 5px;"> AstriX </a>
+		<a class="btn navbar-text" href="#services">About us</a>
 		{% if user.is_authenticated  %}
 		  
 		  <a class="btn btn-outline-success my-2 my-sm-0 ml-auto" href="{% url 'logout' %}">Logout</a>
@@ -22,7 +29,33 @@
 		  <a class="btn btn-outline-success my-2 my-sm-0 ml-auto" href="{% url 'login' %}">Login</a>
 		  {% endif %}
 		
-	  </nav>	
+	  </nav>	 
+
+	  {% comment %} <nav class="navbar navbar-expand-lg nav-back " 
+    id="mainNav">
+      <div class="container">
+          <a class="navbar-brand" href="#">Medical</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button"
+           data-toggle="collapse" data-target="#navbarResponsive" 
+           aria-controls="navbarResponsive" aria-expanded="false" 
+           aria-label="Toggle navigation"><i class="fas fa-syringe fa-2x"></i>
+           </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" 
+                  href="#about">Services</a></li>
+                  <li class="nav-item"><a class="nav-link" 
+                    href="#about">About</a></li>
+                  <li class="nav-item"><a class="nav-link" 
+                    href="#about">Medical Camps</a></li>
+                  <li class="nav-item"><a class="nav-link"
+                     href="#projects">Team</a></li>
+                  <li class="nav-item"><a class="nav-link" 
+                    href="#signup">Contact</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav> {% endcomment %}
 		<div class="wrapper d-flex align-items-stretch">
 			
 			<nav id="sidebar">
@@ -84,7 +117,7 @@
 
 	        </ul>
 
-	        <div class="footer">
+	        <div class="footer1">
 	        	
 					<h6>
 						<footer> K S Prajwal </footer>
@@ -102,15 +135,15 @@
     	</nav>
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
+      <div id="content" >
 		
 		
-		<div class="container">
+		
     
 			{% block content %}
 			{% endblock %}
 
-		</div>
+		
 		
       </div>
 		</div>

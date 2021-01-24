@@ -2,11 +2,12 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="p-4 p-md-5 pt-5">
     <form method="post">{% csrf_token %} 
 	<p>Are you sure you want to delete the treatment of "{{ object.pname }}"?</p> 
 	<input class="btn btn-danger" type="submit" value="Delete"> 
 </form> 
-</form> 
+</div>>
 
 
 {% endblock %}

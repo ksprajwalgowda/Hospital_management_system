@@ -8209,7 +8209,7 @@ h1, h2, h3, h4, h5,
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #866ec7;
+  background: #11dbcf;
   color: #fff;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -8291,6 +8291,7 @@ a[data-toggle="collapse"] {
 
 @media (max-width: 991.98px) {
   #sidebarCollapse span {
+    z-index: 50000;
     display: none; } }
 
 #content {
